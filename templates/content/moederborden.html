@@ -1,0 +1,28 @@
+<h3>Zoek uw moederbord:</h3>
+<input type="text" ng-model="nm.name"></input>
+<br>
+U zoekt op: {{ nm.name }}
+<br><br>
+<input type="checkbox" ng-model="socket775" ng-true-value='775'/>Socket 775<br>
+<input type="checkbox" ng-model="socket1150" ng-true-value='1150'/>Socket 1150<br>
+<input type="checkbox" ng-model="socket1155" ng-true-value='1155'/>Socket 1155<br>
+<input type="checkbox" ng-model="socketAM3" ng-true-value='AM3'/>Socket AM3<br>
+<br><br>
+<table>
+    <tr>
+        <th>Naam</th>
+		<th>socket</th>
+        <th>Type</th>
+    </tr>
+	<tr ng-repeat="moederbord in moederborden | filter:nm.name | filter:socket775 | filter:socket1150 | filter:socket1155 | filter:socketAM3">
+        <td>{{ moederbord.naam }}</td>
+        <td>{{ moederbord.socket }}</td>
+		<td>{{ moederbord.type }}</td>
+	</tr>
+</table>
+
+<br><br><br>
+<p>Array (ontwikkelomgeving):</p>
+<pre>{{ moederborden | json }}</pre>
+
+
